@@ -103,7 +103,7 @@ Four EduOM_CreateObject(
 
 	/* Error check whether using not supported functionality by EduOM */
 	if(ALIGNED_LENGTH(length) > LRGOBJ_THRESHOLD) ERR(eNOTSUPPORTED_EDUOM);
-    // printf("SEX");
+
     //initialize header
     objectHdr.properties = 0x0;
     objectHdr.length = 0;
