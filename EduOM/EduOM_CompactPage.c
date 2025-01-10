@@ -92,7 +92,6 @@ Four EduOM_CompactPage(
     //emptyslot 아닌 애들만 다시 원래 페이지로 옮김. 
 
     // tpage로 옮기고, last nonempty Slot 찾기
-    //시발 길이 머고
     memcpy(&tpage, apage, PAGESIZE);
     for (i =0; i<apage->header.nSlots; i++){
         if (apage->slot[-i].offset!=EMPTYSLOT && i != slotNo){
@@ -115,7 +114,6 @@ Four EduOM_CompactPage(
             obj = &(tpage.data[tpage.slot[-i].offset]);
 
             //len = 오브젝트 길이 + 오브젝트 헤더 길이
-            // 여기 데이터 얼라인 해야되나? 그럴듯.
             len = ALIGNED_LENGTH(obj->header.length) + sizeof(obj->header);
             apage->slot[-i].offset = apageDataOffset;
             // memcpy(apage+apageDataOffset, (&tpage) + (&tpage)->slot[-i].offset, len);
